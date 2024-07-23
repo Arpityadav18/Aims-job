@@ -119,7 +119,7 @@ const containerStyles = {
   justifyContent: "space-between",
   alignItems: "flex-start", // Ensures cards align at the top
   flexWrap: "wrap", // Ensures cards wrap if they exceed container width
-  padding: "10px",
+  padding: "30px",
   boxSizing: "border-box",
   marginTop:"90px"
 };

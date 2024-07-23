@@ -1,8 +1,10 @@
 import React from "react";
+import JobCard from "components/JobCard";
 
 // reactstrap components
 import { Button, Container, Row, Col } from "reactstrap";
 import SearchBar from "../../components/SearchBar/index";
+import { Link } from "react-router-dom";
 
 class Hero extends React.Component {
   render() {
@@ -28,9 +30,8 @@ class Hero extends React.Component {
             <Container className="shape-container d-flex align-items-center py-lg">
               <div className="col px-0">
                 <Row className="align-items-center justify-content-center">
-                  <div className="container mytest">
+                  <div className="container mytest ">
                     
-                    {/* Job Role  */}
                     <select
                       name=""
                       id=""
@@ -56,7 +57,6 @@ class Hero extends React.Component {
                       </option>
                     </select>
 
-                    {/* Job Type */}
                     <select
                       name=""
                       id=""
@@ -76,7 +76,6 @@ class Hero extends React.Component {
                       </option>
                     </select>
 
-                    {/* Job Location */}
                     <select
                       name=""
                       id=""
@@ -96,7 +95,6 @@ class Hero extends React.Component {
                       </option>
                     </select>
 
-                    {/* Experience */}
                     <select
                       name=""
                       id=""
@@ -122,7 +120,12 @@ class Hero extends React.Component {
                     <Button color="primary" className="btncustome">
                       Search
                     </Button>
+                  
                   </div>
+
+                  {/* <div className="container">
+                    <SearchBar />
+                  </div> */}
                   <Col className="text-center" lg="7">
                     <img
                       // style={{width:"120px",borderRadius:"20%",backgroundColor:"white"}}
@@ -140,21 +143,23 @@ class Hero extends React.Component {
                     </p>
 
                     <div className="btn-wrapper mt-5">
+                      <Link to="/jobCard-page">
+                        <Button
+                          className="mb-3 mb-sm-0"
+                          color="default"
+                          size="lg"
+                        >
+                          <span className="btn-inner--icon mr-1">
+                            <i className="ni ni-cloud-download-95" />
+                          </span>
+                          <span className="btn-inner--text">Apply For JOB</span>
+                        </Button>{" "}
+                      </Link>
+
+                      <Link to="/searchBar-page">
                       <Button
                         className="mb-3 mb-sm-0"
-                        // color="default"
-                        // href="https://www.creative-tim.com/product/argon-design-system-react?ref=adsr-landing-page"
-                        // size="lg"
-                      >
-                        <span className="btn-inner--icon mr-1">
-                          <i className="ni ni-cloud-download-95" />
-                        </span>
-                        <span className="btn-inner--text">Apply For JOB</span>
-                      </Button>{" "}
-                      <Button
-                        className="mb-3 mb-sm-0"
-                        color="github"
-                        href="https://github.com/creativetimofficial/argon-design-system-react"
+                        color="github"                        
                         size="lg"
                         target="_blank"
                       >
@@ -166,6 +171,7 @@ class Hero extends React.Component {
                           JOB On POST
                         </span>
                       </Button>
+                      </Link>
                     </div>
                     <div className="mt-5">
                       <small className="text-white font-weight-bold mb-0 mr-2">

@@ -1,69 +1,127 @@
 import React from "react";
 import dayjs from "dayjs";
+import DemoNavbar from "components/Navbars/DemoNavbar";
 
-function JobCard() {
-  const skills = ["JavaScript", "React", "Nodejs","backend"];
+const JobCard = () => {
+  const skills = ["JavaScript", "React", "Node.js", "Backend"];
   const date1 = dayjs(Date.now());
   const diffInDays = date1.diff("2024-07-10", "days");
 
   return (
-    <div className="mx-40 mb-4">
-
-    {/* JobCard_1 */}
-      <div className="flex justify-between item-center px-6 py-4 bg-zinc-200 rounded-md border border-black shadow-lg hover:border-blue-500 hover:translate-y-1 hovel:scale-103 mb-3">
-      
-        {/* Frist Div */}
-        <div className="flex flex-col items-start gap-3">
-        <h1 className="text-lg font-semibold">Front-End Developer - Jupitech Techno </h1>
-        <p>Full Time &#x2022;  Fresher &#x2022; In-Office &#x2022; Indore</p>
-
-        <div className="flex items-center gap-2">
-          {skills?.map((skill) => (
-              <p key={skill} className="text-gray-500 py-1 px-2 rounded-md border border-black">{skill}</p>
-            ))}
-
+    <>
+    <DemoNavbar/>
+    <div style={styles.card}>
+      <div style={styles.content}>
+        <div style={styles.header}>
+          <h1 style={styles.title}>Front-End Developer - Jupitech Techno</h1>
+          <p style={styles.details}>
+            Full Time &#x2022; Fresher &#x2022; In-Office &#x2022; Indore
+          </p>
         </div>
-        </div>
-        {/* End of Frist Div */}
 
-
-
-      {/* Second Div */}
-        <div className=" flex items-center gap-4">
-        <p className="text-gray-500">Posted : {diffInDays} Days ago.</p>
-        <a href=""><button className="text-blue-500 border border-blue-500 px-10 py-2 rounded-md">Apply</button></a>
-        </div>
-        {/* End of Second Div */}
-      </div>
-          
-    {/* JobCard_1 */}
-      <div className="flex justify-between item-center px-6 py-4 bg-zinc-200 rounded-md border border-black shadow-lg hover:border-blue-500 hover:translate-y-1 hovel:scale-103 mb-3">    
-      {/* Frist Div */}
-      <div className="flex flex-col items-start gap-3">
-      <h1 className="text-lg font-semibold">Back-End Developer - Jupitech Techno </h1>
-      <p>Full Time &#x2022;  Fresher &#x2022; In-Office &#x2022; Indore</p>
-
-      <div className="flex items-center gap-2">
-        {skills?.map((skill) => (
-            <p key={skill} className="text-gray-500 py-1 px-2 rounded-md border border-black">{skill}</p>
+        <div style={styles.skills}>
+          {skills.map((skill, index) => (
+            <p key={index} style={styles.skill}>
+              {skill}
+            </p>
           ))}
+        </div>
 
+        <div style={styles.footer}>
+          <p style={styles.posted}>Posted: {diffInDays} Days ago.</p>
+          <a href="#">
+            <button style={styles.button}>Apply</button>
+          </a>
+        </div>
       </div>
-      </div>
-      {/* End of Frist Div */}
+    </div>
+    </>
+  );
+};
 
+const styles = {
+  card: {
+    border: "2px solid black",
+    borderRadius: "8px",
+    padding: "16px",
+    boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+    width: "30%", // Adjusted width to fit three cards in a row
+    margin: "10px", // Margin to ensure spacing between cards
+    boxSizing: "border-box",
+    marginLeft :"40px",    
+  },
+  content: {
+    display: "flex",
+    flexDirection: "column",
+    height: "100%", // Ensures the content stretches vertically
+  },
+  header: {
+    marginBottom: "12px",
+  },
+  title: {
+    fontSize: "1.25rem",
+    fontWeight: "600",
+    marginBottom: "4px",
+  },
+  details: {
+    fontSize: "0.875rem",
+    color: "#666",
+  },
+  skills: {
+    display: "flex",
+    gap: "8px",
+    marginBottom: "12px",
+    flexWrap: "wrap", // Allow skills to wrap if they exceed container width
+  },
+  skill: {
+    padding: "4px 8px",
+    backgroundColor: "#f0f0f0",
+    color: "#666",
+    borderRadius: "4px",
+    border: "1px solid #ccc",
+    fontSize: "0.875rem",
+  },
+  footer: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginTop: "auto", // Push footer to the bottom
+  },
+  posted: {
+    fontSize: "0.875rem",
+    color: "#666",
+  },
+  button: {
+    padding: "8px 20px",
+    border: "1px solid #007bff",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    borderRadius: "6px",
+    cursor: "pointer",
+    transition: "background-color 0.3s, color 0.3s",
+    textDecoration: "none",
+    fontSize: "0.875rem",
+  },
+};
 
-
-    {/* Second Div */}
-      <div className=" flex items-center gap-4">
-      <p className="text-gray-500">Posted : {diffInDays} Days ago.</p>
-      <a href=""><button className="text-blue-500 border border-blue-500 px-10 py-2 rounded-md">Apply</button></a>
-      </div>
-      {/* End of Second Div */}
-      </div>
-
+const JobCardContainer = () => {
+  return (
+    <div style={containerStyles}>
+      {/* <JobCard /> */}
+      <JobCard />
+      {/* <JobCard /> */}
     </div>
   );
-}
+};
 
-export default JobCard;
+const containerStyles = {
+  // display: "flex",
+  justifyContent: "space-between",
+  alignItems: "flex-start", // Ensures cards align at the top
+  flexWrap: "wrap", // Ensures cards wrap if they exceed container width
+  padding: "10px",
+  boxSizing: "border-box",
+  marginTop:"90px"
+};
+
+export default JobCardContainer;

@@ -95,7 +95,8 @@ class DemoNavbar extends React.Component {
                 <UncontrolledDropdown nav>
                     <DropdownToggle nav>
                       <i className="ni ni-ui-04 d-lg-none mr-1" />
-                      <span className="nav-link-inner--text"><b>Home</b></span>
+                      <span className="nav-link-inner--text">
+                        <Link to="/" style={{ color: "white" }}><b>Home</b></Link></span>
                     </DropdownToggle>
                     
                   </UncontrolledDropdown>

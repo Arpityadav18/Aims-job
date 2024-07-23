@@ -1,13 +1,14 @@
 
 import React from "react";
 
+
 // reactstrap components
 import { Container, Row } from "reactstrap";
 
 // core components
 import DemoNavbar from "components/Navbars/DemoNavbar.js";
 import CardsFooter from "components/Footers/CardsFooter.js";
-import App from "./App.js"
+
 // index page sections
 import Hero from "./IndexSections/Hero.js";
 import Buttons from "./IndexSections/Buttons.js";
@@ -31,17 +32,15 @@ import Login from "./IndexSections/Login.js";
 import Download from "./IndexSections/Download.js";
 
 class Index extends React.Component {
-  // componentDidMount() {
-  //   document.documentElement.scrollTop = 0;
-  //   document.scrollingElement.scrollTop = 0;
-  //   this.refs.main.scrollTop = 0;
-  // }
+  componentDidMount() {
+    document.documentElement.scrollTop = 0;
+    document.scrollingElement.scrollTop = 0;
+    this.refs.main.scrollTop = 0;
+  }
   render() {
     return (
       <>
-        <DemoNavbar />
-        <App/>
-        {/* <main ref="main">
+        <main ref="main">
           <Hero />
           <Buttons />
           <Inputs />
@@ -74,7 +73,7 @@ class Index extends React.Component {
           <Icons />
           <Login />
           <Download />
-        </main> */}
+        </main>
         <CardsFooter />
       </>
     );
